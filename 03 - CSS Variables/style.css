@@ -1,0 +1,57 @@
+/* 这个伪元素匹配的是文档的根元素，也就是 <html> 标签。常用于声明全局的css变量 */
+:root { 
+    --spacing: 10px;
+    --blur: 10px;
+    --base: #ffc600;
+    --font-size: 10px;
+}
+
+html,
+body {
+    color: white;
+    background-color: #193549;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+    font-size: calc(4*var(--font-size));
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+
+.h1 {
+    color: var(--base)
+}
+
+.controls {
+    font-weight: 100;
+    margin-bottom: calc(5*var(--font-size));
+}
+
+.controls .wrap {
+    display: inline-block;
+    margin: 5px auto;
+}
+
+.controls .wrap label {
+    margin-left: 20px;
+}
+
+.controls .wrap input {
+    width: calc(10*var(--font-size));
+    position: relative;
+    top: 3px;
+}
+
+.controls .wrap #base {
+    top: -3px;
+}
+
+img {
+    width: 700px;
+    height: 500px;
+    padding: var(--spacing);
+    filter: blur(var(--blur));/*CSS 的滤镜提供了一些图形特效，比如高斯模糊（blur）、锐化、变色等。它带有一些预设的函数，在使用时加上参数调用这些函数即可。*/
+    background-color: var(--base);
+    /*背景颜色填充内容、内边距、边框，作为打底色*/
+}
