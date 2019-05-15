@@ -221,9 +221,9 @@ date();
 - 获取秒针、分钟、小时节点
 
 ```js
-    const secondHand = document.querySelector(".second-hand");
-    const minHand    = document.querySelector(".min-hand");
-    const hourHand   = document.querySelector(".hour-hand");
+    const SECOND = document.querySelector(".second-hand");
+    const MINUTE    = document.querySelector(".min-hand");
+    const HOUR   = document.querySelector(".hour-hand");
 ```
 
 - 获取当前时间秒、分、小时
@@ -246,9 +246,9 @@ const hoursDegrees        =  (hours-12)*30+(mins/60)*30;
 - 根据角度设置样式
 
 ```js
-secondHand.style.transform  =  `rotate(${secondsDegrees}deg)`;
-minHand.style.transform   =  `rotate(${minsDegrees}deg)`;
-hourHand.style.transform  =  `rotate(${hoursDegrees}deg)`;
+SECOND.style.transform  =  `rotate(${secondsDegrees}deg)`;
+MINUTE.style.transform   =  `rotate(${minsDegrees}deg)`;
+HOUR.style.transform  =  `rotate(${hoursDegrees}deg)`;
 ```
 
 - 设置定时器，每秒调用一次`setDate`函数
