@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Rainbowbrush</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        #canvas{
+            border:1px solid black;
+            width: 100%;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body onload="draw();">
+    <canvas id="canvas">
+        <p>抱歉！您的浏览器暂不支持Canvas标签属性!</p>
+    </canvas>
+    <script >
+       function draw(){
+           let canvas = document.getElementById("canvas");
+           if(canvas.getContext){
+               let ctx = canvas.getContext('2d');
+               ctx.fillRect(25,25,80,80);
+               ctx.filStyle = "rgba(0, 0, 200, 0.5)";
+               ctx.clearRect(35,35,60,60);
+               ctx.strokeRect(45,45,40,40);
+
+               ctx.beginPath();
+               ctx.moveTo(65, 65);
+               ctx.lineTo(85, 85);
+               ctx.lineTo(85, 45);
+               ctx.fill();
+
+               ctx.beginPath();
+               ctx.moveTo(65,65);
+               ctx.lineTo(45,85);
+               ctx.lineTo(45,45);
+               ctx.fill();
+
+               ctx.beginPath();
+               ctx.arc(180,65,40,0,Math.PI*2,true); // 绘制
+               ctx.moveTo(220,65);
+               ctx.arc(180,65,30,0,Math.PI,false);
+               ctx.moveTo(165,65);
+               ctx.arc(165,65,5,0,Math.PI*2,true);  // 左眼
+               ctx.moveTo(195,65);
+               ctx.arc(195,65,5,0,Math.PI*2,true);  // 右眼
+               ctx.stroke();
+               ctx.strokeStyle("orange");
+              
+           }
+       }
+    </script>
+</body>
+</html>
+
+

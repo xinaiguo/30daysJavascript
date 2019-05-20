@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Rainbowbrush</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="800">
+        <p>抱歉！您的浏览器暂不支持Canvas标签属性!</p>
+    </canvas>
+    <script>
+
+        let [beginX, beginY] = [0, 0];//初始化起始点
+        let hue = 0;//hsl的色调初始值
+        let isDrawing = false;
+        let lineWidth = 60;
+        let lGrowing = true;
+        let cts = '';
+
+        window.onload = function () {
+            const canvas = document.getElementById('canvas');
+            cts = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            canvas.addEventListener("mousedown", beginLocation);
+            canvas.addEventListener("mousemove", drawing);
+            canvas.addEventListener("mouseup", () => isDrawing = false);
+            canvas.addEventListener("mouseout", () => isDrawing = false);
+        }
+
+        //设置起始坐标
+        function beginLocation(e) {
+            beginX = e.offsetX;
+            beginY = e.offsetY;
+            isDrawing = true;
+        }
+
+//绘图函数：实际上一段一段的直线连接而成，鼠标每移动一点就将该时刻的坐标转换成下一次的起始坐标，而鼠标移动后的位置作为该段直线结束的坐标。
+        function drawing(e){
+            if(isDrawing){
+                let moveX = e.offsetX;
+                let moveY = e.offsetY;
+
+                //色相值改变
+                if(hue<=360){  //hue要设置初始值
+                    hue++;
+                }else{
+                    hue=0;
+                }
+
+                if(lineWidth>100 || lineWidth<10){
+                    lGrowing = !lGrowing;
+                }
+                if(lGrowing){
+                    lineWidth++;
+                }else{
+                    lineWidth--;
+                }
+
+                cts.lineWidth = lineWidth;
+                cts.lineCap = "round";
+                cts.lineJoin = "round";
+
+                cts.strokeStyle=`hsl(${hue},100%,50%)`;
+                cts.beginPath();
+                cts.moveTo(beginX,beginY);
+                cts.lineTo(moveX,moveY);
+                cts.closePath();
+                [beginX,beginY] = [moveX,moveY];
+                cts.stroke();
+
+            }else{
+                return;
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
