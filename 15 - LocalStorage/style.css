@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+  background: url(./restaurant-691397_1280.jpg) center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+svg {
+  width: 200px;
+  fill: white;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 350px;
+  box-shadow:0 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h2{
+  margin: 0;
+  font-weight: 200;
+}
+
+.plates{
+  list-style: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.plates li{
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 0;
+  font-weight: 100;
+  display: flex;
+}
+
+.addItems{
+  padding: 10px;
+  border: ipx solid rgba(0,0,0,0.2);
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
