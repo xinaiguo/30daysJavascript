@@ -4,7 +4,7 @@ const sorters = document.querySelectorAll('.sort > a');
 
 function sort(e){
     const asc = e.target.dataset.asc;
-    displaySortArr(alphaSort(bandArr,asc,'articles'),bandList);
+    displaySortArr(alphaSort(bandArr,asc),bandList);
 }
 
 function displaySortArr(arr,bandList){
@@ -12,16 +12,12 @@ function displaySortArr(arr,bandList){
 
 }
 
-function alphaSort(bandArr,asc=true,excl=null){
+function alphaSort(bandArr,asc=true){
     let sortArr = [];
     let regex = null;
+    let excl = ['an','a','the'];
     const a = asc === "true"? 1 : -1;
-
-    if (excl==='articles') {
-        excl = ['an','a','the'];
-    }
-    if(excl instanceof Array){
-        const exclusions = excl.map((item,i) => {
+    const exclusions = excl.map((item,i) => {
             if (i===excl.length-1) {
                 return item + ' ';
             }else{
@@ -29,12 +25,7 @@ function alphaSort(bandArr,asc=true,excl=null){
             }
         }).join('');
         // 从头开始匹配an 或 a 或the 并且捕获匹配项
-        regex = new RegExp('^('+exclusions+')','i');
-    }else if (typeof excl === "string") {
-        regex = excl;
-    }else{
-        regex='';
-    }
+    regex = new RegExp('^('+exclusions+')','i');
 
     sortArr = bandArr.sort((curr,next) => {
         const exclCurr = curr.replace(regex,'').toLowerCase();
@@ -42,9 +33,7 @@ function alphaSort(bandArr,asc=true,excl=null){
         return exclCurr > exclNext ? a : -a;
     });
     return sortArr;
-
 }
-
 displaySortArr(bandArr,bandList);
 sorters[0].addEventListener('click',sort);
 sorters[1].addEventListener('click',sort);
