@@ -1,0 +1,103 @@
+html {
+  box-sizing: border-box;
+  background: url("./pictrue.jpg") center no-repeat;
+  background-size: cover;
+  font-size: 10px;
+  font-family: sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+}
+
+.wrap {
+  padding: 2rem;
+  width: 50rem;
+  margin: 8rem auto;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+
+}
+
+h1 {
+  font-size: 4rem;
+  width: calc(100% + 4rem);
+  background-color: #c0a0bc;
+  margin: 0;
+  margin-left: -2rem;
+  margin-top: -2rem;
+  padding: 1.2rem 1rem;
+  border-bottom: .5rem solid #a05f98;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+
+}
+
+.wrap select,
+.wrap input,
+.wrap textarea,
+.wrap button {
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  padding: .8rem;
+  border: 0;
+  outline:0;
+  border-radius: .2rem;
+  font-size: 16px;
+  font-family: sans-serif;
+  
+}
+
+.wrap select{
+  width: 66%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px #74b2db;
+  
+}
+
+.wrap select:first-of-type{
+  width: 33%;
+}
+
+textarea{
+  height: 15rem;
+  box-shadow: 0 0 0 1px #74b2db;
+}
+
+label{
+  text-align: left;
+  font-size: 16px;
+}
+
+.wrap button{
+  display: inline-block;
+  width: 49%;
+  background: #c0a0bc;
+  padding: 1rem;
+  margin: .1rem;
+  font-size: 1.5rem;
+  border-bottom: .5rem solid #a05f98;
+  cursor: pointer;
+  font-family: 'Pacifico', cursive;
+  position: relative;
+}
+
+.wrap button:active{
+  /*如果 "position" 属性的值为 "static"，那么设置 "top" 属性不会产生任何效果。*/
+  top: .2rem;
+}
