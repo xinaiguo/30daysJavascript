@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Timer</title>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="timer">
+    <div class="timer_controls">
+      <button data-time="20" class="timer_button">20 SECS</button>
+      <button data-time="300" class="timer_button">WORK 5</button>
+      <button data-time="900" class="timer_button">QUICK 15</button>
+      <button data-time="1200" class="timer_button">SNAKE 20</button>
+      <button data-time="3600" class="timer_button">LUNCH BREAK</button>
+      <form name="customForm" id="custom">
+        <input type="text" name="min" placeholder="Enter Minutes"></input>
+      </form>
+    </div>
+    <div class="display">
+      <h1 class="display_time"></h1>
+      <p class="display_endTime"></p>
+    </div>
+  </div>
+
+  <script src="timer.js"></script>
+</body>
+
+</html>
