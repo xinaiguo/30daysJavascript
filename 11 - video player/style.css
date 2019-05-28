@@ -1,0 +1,139 @@
+html {
+  box-sizing: border-box;
+  background: url(./timg.jpg) center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player {
+  max-width: 500px;
+  position: relative;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-size: 0;
+  margin-top: 60px;
+
+}
+
+.view {
+  width: 100%;
+  height: 700px;
+  object-fit: fill;
+}
+
+.videoControl {
+  display: flex;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  bottom: 0;
+  transform: translateY(100%) translateY(-5px);
+  transition: all .3s;
+  position: absolute;
+  flex-wrap: wrap;
+}
+
+.videoControl>* {
+  flex: 1;
+}
+
+.player:hover .videoControl {
+  transform: translateY(0);
+}
+
+.player_button {
+  background: none;
+  border: 0;
+  color: white;
+  text-align: center;
+  outline: 0;
+  cursor: pointer;
+  max-width: 50px;
+}
+
+.player_button:focus {
+  border-color: #ffc600;
+}
+
+
+.player_slider {
+  width: 10px;
+  height: 30px;
+}
+
+.progress {
+  flex: 10;
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  /*初始长度占据100%*/
+  height: 5px;
+  transition: height .3s;
+  /*当鼠标位于视频播放器，进度条由5px变成15px*/
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: e-resize;
+  /*定义鼠标的样式是左右箭头滑动样式*/
+
+}
+
+.player:hover .progress {
+  height: 15px;
+}
+
+.progress_filled {
+  width: 50%;
+  background: #ffc600;
+  flex: 0;
+  flex-basis: 0%;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 100%;
+  margin: 0 5px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+/*::-webkit-slider-runnable-track:表示其在type为range的input标签内中的滑块凹槽,也就是滑块可滑动的区域*/
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.8);
+  height: 8px;
+  border-radius: 1.5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+
+/*::-webkit-slider-thumb:type为range的input标签内的一种伪类样式,用于设置range的滑块的具体样式*/
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50px;
+  background: #ffc600;
+  margin-top: -5px;
+
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ff9900;
+}
